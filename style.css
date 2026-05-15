@@ -1,0 +1,249 @@
+/* getheddle.dev — minimal landing styles, no framework, no fonts loaded over the network. */
+
+:root {
+  --bg: #fafafa;
+  --fg: #1a1a1a;
+  --muted: #555;
+  --line: #e5e5e5;
+  --accent: #4f46e5;       /* indigo-600, matches heddle docs */
+  --accent-hover: #4338ca;
+  --code-bg: #f4f4f5;
+  --card-bg: #ffffff;
+  --status-active: #16a34a;
+  --status-design: #ca8a04;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0c10;
+    --fg: #e8e8ea;
+    --muted: #9b9ba0;
+    --line: #2a2a30;
+    --accent: #818cf8;
+    --accent-hover: #a5b4fc;
+    --code-bg: #18181c;
+    --card-bg: #15151a;
+    --status-active: #4ade80;
+    --status-design: #facc15;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+code, pre {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  background: var(--code-bg);
+}
+code { padding: 0.1em 0.3em; border-radius: 3px; font-size: 0.92em; }
+pre {
+  padding: 0.85rem 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.95em;
+}
+pre code { background: transparent; padding: 0; }
+
+h1, h2, h3, h4 { line-height: 1.25; margin-top: 0; }
+h1 { font-size: 2.4rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.7rem; letter-spacing: -0.01em; margin-bottom: 1.5rem; }
+h3 { font-size: 1.15rem; }
+h4 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+
+/* Nav */
+header {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+.brand:hover { color: var(--accent); text-decoration: none; }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+nav a { color: var(--muted); font-size: 0.95rem; }
+nav a:hover { color: var(--accent); text-decoration: none; }
+
+/* Layout */
+main { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+section { padding: 4.5rem 0; border-bottom: 1px solid var(--line); }
+section:last-of-type { border-bottom: none; }
+
+/* Hero */
+.hero { text-align: left; max-width: 760px; padding-top: 5rem; }
+.hero h1 { margin-bottom: 1.3rem; }
+.lede { font-size: 1.2rem; color: var(--muted); margin-bottom: 2rem; }
+.cta { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.3rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 500;
+  border: 1px solid var(--line);
+  color: var(--fg);
+}
+.button:hover { background: var(--code-bg); text-decoration: none; }
+.button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.button.primary:hover { background: var(--accent-hover); color: white; }
+
+/* Philosophy */
+.opinion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+}
+.opinion-grid > div h3 { color: var(--accent); margin-bottom: 0.4rem; }
+.opinion-grid > div p { margin: 0; color: var(--muted); font-size: 0.96rem; }
+
+/* Projects */
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1.2rem;
+}
+.project-card h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+.project-card h3 a { color: var(--fg); }
+.project-card h3 a:hover { color: var(--accent); }
+.status {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.status.active {
+  background: color-mix(in srgb, var(--status-active) 15%, transparent);
+  color: var(--status-active);
+}
+.status.design {
+  background: color-mix(in srgb, var(--status-design) 15%, transparent);
+  color: var(--status-design);
+}
+.role {
+  color: var(--accent);
+  font-weight: 500;
+  margin: 0 0 0.7rem 0;
+  font-size: 0.95rem;
+}
+.project-card p { color: var(--muted); }
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0.9rem 0 0 0;
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  font-size: 0.93rem;
+}
+
+/* Start */
+.start-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+.start-grid > div {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.2rem 1.4rem;
+}
+.start-grid h3 { margin-bottom: 0.7rem; }
+.start-grid pre { margin: 0 0 0.5rem 0; }
+.caption { color: var(--muted); font-size: 0.88rem; margin: 0; }
+.aside { color: var(--muted); font-size: 0.96rem; max-width: 760px; }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 3rem 1.5rem 2rem 1.5rem;
+  background: var(--bg);
+}
+.footer-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-grid li {
+  padding: 0.25rem 0;
+  font-size: 0.94rem;
+  color: var(--muted);
+}
+.footer-grid a { color: var(--muted); }
+.footer-grid a:hover { color: var(--accent); }
+.copyright {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.4rem; }
+  .lede { font-size: 1.05rem; }
+  nav ul { gap: 0.9rem; }
+  nav ul li:not(:last-child) { display: none; }
+  section { padding: 3rem 0; }
+}

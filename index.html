@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Heddle — testable AI workflows for solo operators, small teams, and small businesses. Local-first, privacy-first, on-prem-friendly.">
+<title>Heddle — testable AI workflows for the rest of us</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/" class="brand">heddle</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#start">Get started</a></li>
+      <li><a href="https://github.com/getheddle" class="external">GitHub</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <h1>Testable AI workflows for the rest of us.</h1>
+  <p class="lede">
+    Most AI tooling assumes you have a platform team and a Kubernetes
+    cluster. Heddle assumes you have a laptop — or a few of them — and
+    a problem to solve. Local-first, privacy-first, on-prem-friendly.
+  </p>
+  <div class="cta">
+    <a href="#start" class="button primary">Get started in 60 seconds</a>
+    <a href="https://getheddle.github.io/heddle/" class="button">Read the docs</a>
+  </div>
+</section>
+
+<section class="philosophy" id="philosophy">
+  <h2>The trade-offs we've made on purpose</h2>
+  <div class="opinion-grid">
+    <div>
+      <h3>Solo and SMB first.</h3>
+      <p>If a feature needs a Kubernetes administrator to operate, it
+        doesn't belong here. You should be able to install a CLI, edit
+        a YAML file, and run a workflow in a browser.</p>
+    </div>
+    <div>
+      <h3>Local before cloud.</h3>
+      <p>The local tier (LM Studio, Ollama) is a first-class citizen,
+        not a fallback. Three model tiers let you pick cost and privacy
+        per step.</p>
+    </div>
+    <div>
+      <h3>Privacy as a default.</h3>
+      <p>Workloads tagged private never leave your machines. Knowledge
+        silos and blind audit patterns prevent the same model from
+        reviewing its own work.</p>
+    </div>
+    <div>
+      <h3>Typed contracts everywhere.</h3>
+      <p>Pydantic messages and per-worker JSON Schemas are the only
+        safety net between actors. No untyped dicts on the wire, ever.</p>
+    </div>
+    <div>
+      <h3>Stateless workers.</h3>
+      <p>Every worker resets between tasks. Horizontal scaling without
+        coordination, deterministic routing, full auditability.</p>
+    </div>
+    <div>
+      <h3>Apple Silicon is a real substrate.</h3>
+      <p>Personal-axis compute deserves a real control plane.
+        Apple Silicon and hyperscaler chips solve different problems;
+        we treat both as first-class.</p>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="projects">
+  <h2>The Heddle project family</h2>
+
+  <div class="project-card">
+    <h3>
+      <a href="https://github.com/getheddle/heddle">heddle</a>
+      <span class="status active">v0.9.2 — active development</span>
+    </h3>
+    <p class="role">The runtime. Python actor-mesh over NATS.</p>
+    <p>
+      Six shipped workers, a Workshop web UI for testing, RAG pipeline,
+      multi-agent councils, MCP gateway, Kubernetes manifests. The
+      canonical Python framework — wire-protocol source of truth for
+      the entire family.
+    </p>
+    <ul class="links">
+      <li><a href="https://github.com/getheddle/heddle">Repository</a></li>
+      <li><a href="https://getheddle.github.io/heddle/">Documentation</a></li>
+      <li><a href="https://pypi.org/project/heddle-ai/">PyPI: heddle-ai</a></li>
+    </ul>
+  </div>
+
+  <div class="project-card">
+    <h3>
+      <a href="https://github.com/getheddle/heddle-sdk">heddle-sdk</a>
+      <span class="status active">in development</span>
+    </h3>
+    <p class="role">Foreign-language SDKs. .NET and Swift, with NATS adapters.</p>
+    <p>
+      Lets you write Heddle processor workers in C# or Swift against
+      the same wire protocol. Vendored JSON Schemas, transport-agnostic
+      worker bases, runnable echo examples. Adding a JVM SDK is on
+      the roadmap.
+    </p>
+    <ul class="links">
+      <li><a href="https://github.com/getheddle/heddle-sdk">Repository</a></li>
+      <li><a href="https://getheddle.github.io/heddle-sdk/">Documentation</a></li>
+    </ul>
+  </div>
+
+  <div class="project-card">
+    <h3>
+      <a href="https://github.com/getheddle/warp-design">warp-design</a>
+      <span class="status design">design phase</span>
+    </h3>
+    <p class="role">Vision and ADRs for a macOS-first cluster agent.</p>
+    <p>
+      Pre-implementation design exploration for <em>warp</em> — a Swift
+      daemon that turns Heddle into an ad-hoc personal/SMB cluster
+      orchestrator. mDNS peer discovery, capacity reporting, policy-driven
+      scheduling, cloud-burst, longitudinal hardware advisor. The
+      <em>warp</em> production repository will appear when v0 is ready.
+    </p>
+    <ul class="links">
+      <li><a href="https://github.com/getheddle/warp-design">Repository</a></li>
+      <li><a href="https://github.com/getheddle/warp-design/blob/main/VISION_AD_HOC_CLUSTERS.md">Vision document</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="start" id="start">
+  <h2>Get started in 60 seconds</h2>
+
+  <div class="start-grid">
+    <div>
+      <h3>1. Install</h3>
+      <pre><code>pip install heddle-ai[workshop]</code></pre>
+    </div>
+    <div>
+      <h3>2. Configure</h3>
+      <pre><code>heddle setup</code></pre>
+      <p class="caption">Auto-detects LM Studio and Ollama.</p>
+    </div>
+    <div>
+      <h3>3. Try it</h3>
+      <pre><code>heddle workshop</code></pre>
+      <p class="caption">Opens the web UI at localhost:8080.</p>
+    </div>
+  </div>
+
+  <p class="aside">
+    No servers to run. No configuration files to write. Pick a worker
+    in the browser, paste any text, click Run. When you're ready to
+    scale, Heddle adds a NATS message bus that connects everything for
+    production use.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>Project</h4>
+      <ul>
+        <li><a href="https://github.com/getheddle">GitHub organization</a></li>
+        <li><a href="https://github.com/getheddle/heddle">heddle</a></li>
+        <li><a href="https://github.com/getheddle/heddle-sdk">heddle-sdk</a></li>
+        <li><a href="https://github.com/getheddle/warp-design">warp-design</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Documentation</h4>
+      <ul>
+        <li><a href="https://getheddle.github.io/heddle/">heddle docs</a></li>
+        <li><a href="https://getheddle.github.io/heddle-sdk/">SDK docs</a></li>
+        <li><a href="https://github.com/getheddle/heddle/blob/main/GOVERNANCE.md">Governance</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:admin@getheddle.dev">admin@getheddle.dev</a></li>
+        <li>MPL 2.0 license</li>
+      </ul>
+    </div>
+  </div>
+  <p class="copyright">
+    Heddle is independent open-source software. Anthropic, OpenAI,
+    Apple, and other vendor names are trademarks of their respective
+    owners and used here for descriptive purposes only.
+  </p>
+</footer>
+
+</body>
+</html>
