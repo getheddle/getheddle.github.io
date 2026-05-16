@@ -1,9 +1,8 @@
 # getheddle.github.io
 
 Source for the org-level landing page. Content is served by GitHub
-Pages at **<https://getheddle.github.io/>**. The public-facing URL
-**<https://getheddle.dev>** is configured outside this repo (as a
-Cloudflare-side 301 redirect to the `.github.io` URL).
+Pages at **<https://getheddle.dev/>**. The backing GitHub Pages URL is
+**<https://getheddle.github.io/>**.
 
 This repository exists to give the `getheddle` family a single
 **front door** — a one-page overview that introduces
@@ -22,6 +21,7 @@ Per-project deep documentation lives elsewhere:
 ## What's here
 
 ```text
+CNAME           GitHub Pages custom domain: getheddle.dev.
 index.html      Single-page landing.
 style.css       Light/dark mode, no framework, no network fonts.
 README.md       This file.
@@ -29,13 +29,19 @@ README.md       This file.
 
 ## URL setup
 
-GitHub Pages serves directly at <https://getheddle.github.io/> — no
-custom-domain CNAME configured on the repo. The shorter brand URL
-<https://getheddle.dev> is owned in Cloudflare and redirects to the
-`.github.io` URL via a Cloudflare Page Rule (or equivalent). The
-`CNAME` file is intentionally absent so that GitHub Pages doesn't
-issue its own reverse redirect (`.github.io` → custom domain) and
-fight the Cloudflare-side redirect.
+GitHub Pages serves the site with `getheddle.dev` as the custom domain.
+The root `CNAME` file is intentional and must remain present because
+Pages uses it to bind the custom domain to this repository.
+
+DNS should point the apex to GitHub Pages and `www` to the Pages host:
+
+```text
+getheddle.dev      A/AAAA  GitHub Pages apex records
+www.getheddle.dev  CNAME   getheddle.github.io
+```
+
+Do not add a competing Cloudflare redirect rule for `getheddle.dev` unless
+the Pages custom domain is removed first.
 
 ## Editing the site
 
