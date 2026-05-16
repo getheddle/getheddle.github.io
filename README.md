@@ -14,8 +14,8 @@ site for what they need next.
 
 Per-project deep documentation lives elsewhere:
 
-- heddle docs: <https://getheddle.github.io/heddle/>
-- SDK docs: <https://getheddle.github.io/heddle-sdk/>
+- heddle docs: <https://getheddle.dev/heddle/>
+- SDK docs: <https://getheddle.dev/heddle-sdk/>
 - warp-design (vision + ADRs): repo-rendered markdown
 
 ## What's here
