@@ -1,0 +1,13 @@
+# Registered claims (M3): written text that must equal its source.
+# Checked by `workspace doc-check` (heddle-workspace); format in its doc_check.py.
+# heddle's latest release changes outside this repo; the weekly doc-check run
+# catches it here.
+claims:
+  - id: latest-heddle-pill
+    file: index.html
+    pattern: 'Latest: heddle (v[0-9.]+)'
+    equals: {latest_tag: heddle}
+  - id: heddle-card-status
+    file: index.html
+    pattern: 'class="status active">(v[0-9.]+) — active development'
+    equals: {latest_tag: heddle}
