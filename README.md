@@ -8,7 +8,9 @@ This repository exists to give the `getheddle` family a single
 **front door** — a one-page overview that introduces
 [`heddle`](https://github.com/getheddle/heddle),
 [`heddle-sdk`](https://github.com/getheddle/heddle-sdk),
-and [`warp-design`](https://github.com/getheddle/warp-design), explains
+[`warp-design`](https://github.com/getheddle/warp-design), and
+[`heddle-workspace`](https://github.com/getheddle/heddle-workspace), shows
+what is moving across the family, explains
 the design philosophy, and points readers at the right documentation
 site for what they need next.
 
